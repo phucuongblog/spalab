@@ -1,0 +1,433 @@
+.header {
+	position: relative;
+	background: $violet url("../images/header-bg.png") no-repeat center right;
+	&.sticky {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 9999;
+		animation-name: slide-down;
+		animation-duration: 1s;
+		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+		.header-top {
+			display: none;
+		}
+		.header-middle {
+			@media screen and (min-width: 992px) {
+				&--logo {
+					a {
+						padding: 5px 0;
+					}
+				}
+				&--menu {
+					& > ul {
+						& > li {
+							padding: 26px 3px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.header-top {
+	background: rgba(0, 0, 0, 0.2);
+	color: rgba(255, 255, 255, 0.32);
+	line-height: 1;
+	padding: 10px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+	a {
+		color: rgba(255, 255, 255, 0.32);
+		&:hover {
+			color: #fff;
+		}
+	}
+	&--contact {
+		float: right;
+		ul {
+			font-size: 0px;
+			li {
+				display: inline-block;
+				font-size: 14px;
+				padding: 0 10px;
+				&:first-child {
+					border-right: 1px solid rgba(255, 255, 255, 0.15);
+				}
+				i {
+					margin-right: 5px;
+					font-size: 18px;
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+	@media screen and (max-width: 767px) {
+		display: none;
+	}
+}
+@keyframes slide-down {
+	0% {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.header-middle {
+	position: relative;
+	&--logo {
+		margin: auto;
+		a {
+			display: block;
+			padding: 10px 0;
+			img {
+				max-width: 100%;
+			}
+			@media screen and (max-width: 991px) {
+				padding: 5px 0 0;
+				img {
+					max-height: 60px;
+				}
+			}
+		}
+		h1, h2 {
+			position: absolute;
+			visibility: hidden;
+		}
+	}
+	&--menu {
+		& > ul {
+			& > li {
+				.sub-menu {
+					img {
+						max-width: 100%;
+					}
+				}
+				&.big-menu {
+					.sub-menu {
+						p {
+							color: #fff;
+							margin: 10px 0;
+							text-align: justify;
+							font-weight: 300;
+						}
+						.purchase {
+							color: rgba(255, 255, 255, 0.6);
+						    background: $violet;
+						    text-align: center;
+						    padding: 10px 5px;
+						    font-size: 15px;
+						    margin-top: 10px;
+						    width: 100%;
+						}
+						.thumbnail {
+							padding: 0;
+							display: flex;
+							border: 3px solid #fff;
+							margin: 15px 0;
+						}
+						h3 {
+							margin-bottom: 10px;
+							a {
+								padding: 0;
+								font-weight: 400;
+								@media screen and (max-width: 991px) {
+									border-bottom: 0;
+								    font-size: 14px;
+								}
+							}
+						}
+						.meta-post {
+							ul {
+								li {
+									display: inline-block;
+									margin-right: 10px;
+									a {
+										padding: 0;
+										color: rgba(255,255,255,.4);
+										font-size: 12px;
+										@media screen and (max-width: 991px) {
+											border-bottom: 0;
+										}
+										i {
+											margin-right: 5px;
+										}
+										&:hover {
+											color: #fff;
+										}
+									}
+								}
+							}
+						}
+						input {
+							border: 0;
+							border-radius: 0;
+						    font-size: 14px;
+						    margin: 10px 0;
+						    height: 45px;
+						    &[type="email"] {
+						    	background: transparent;
+							    border: 1px solid rgba(255,255,255,.15);
+							    color: #fff;
+							    &::placeholder {
+							    	color: rgba(255,255,255,.4);
+							    }
+						    }
+						    &[type="submit"] {
+						    	color: #fff;
+							    background: $violet;
+							    transition: 0.3s;
+							    cursor: pointer;
+							    &:hover {
+							    	background: $violet3;
+							    }
+						    }
+						}
+						@media screen and (max-width: 991px) {
+							border-bottom: 1px solid;
+						}
+					}
+				}
+			}
+		}
+		@media screen and (min-width: 992px) {
+			float: right;
+			& > ul {
+				& > li {
+					display: inline-block;
+					position: relative;
+					padding: 31px 3px;
+					& > a {
+						text-transform: uppercase;
+					    color: #fff;
+					    display: block;
+					    padding: 6px 22px 4px;
+					    font-weight: 400;
+					    border-radius: 50px;
+					    border: 2px solid transparent;
+						&:hover {
+							color: #fff;
+						}
+					}
+					.sub-menu {
+						background: $violet2;
+						transition: 0.1s;
+						min-width: 250px;
+						border-top: 2px solid $violet;
+						@include absolute(100%,null,null,0);
+						z-index: 999;
+						box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+						opacity: 0;
+						padding: 6px 0;
+						visibility: hidden;
+						width: max-content;
+						.col, .col-12 {
+							max-width: 220px;
+						    width: 220px;
+						}
+						li {
+							a {
+								display: block;
+								padding: 5px 0;
+								color: #fff;
+								font-weight: 300;
+								text-transform: capitalize;
+								&:hover {
+									padding-left: 10px;
+								}
+							}
+							&.title {
+								a {
+									margin-bottom: 5px;
+									font-size: 16px;
+									font-weight: 400;
+									padding-bottom: 5px;
+									border-bottom: 1px solid $violet;
+									&:hover {
+										padding-left: 0;
+									}
+								}
+							}
+						}
+					}
+					&.dropdown-menus {
+						.sub-menu {
+							min-width: 180px;
+							li {
+								position: relative;
+								.sub-child {
+									@include absolute(0,null,100%,null);
+									opacity: 0;
+									visibility: hidden;
+									border-top: 0;
+									border-left: 2px solid $violet;
+								}
+								a {
+									padding-left: 20px;
+								}
+								&:hover {
+									a {
+										padding-left: 30px;
+									}
+									.sub-child {
+										opacity: 1;
+										visibility: visible;
+										li {
+											a {
+												padding-left: 20px;
+												&:hover {
+													padding-left: 30px;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					&.mega-menus {
+						.sub-menu {
+							padding: 5px 20px;
+						}
+					}
+					&.big-menu {
+						.sub-menu {
+							right: 50%;
+							transform: translate(50%);
+							padding-bottom: 15px;
+							.title {
+								a {
+									margin-top: 10px;
+								}
+							}
+						}
+					}
+					&:hover {
+						.sub-menu {
+							opacity: 1;
+							visibility: visible;
+						}
+						& > a {
+							border-color: #fff;
+						}
+					}
+					&.active {
+						& > a {
+							border-color: #fff;
+						}
+					}
+				}
+			}
+		}
+		@media screen and (min-width: 992px) and (max-width: 1200px) {
+			& > ul {
+				& > li {
+					& > a {
+						padding: 6px 12px 4px;
+					}
+				}
+			}
+		}
+		@media screen and (max-width: 991px) {
+			& > ul {
+				position: fixed;
+			    width: 100%;
+			    height: 100%;
+			    max-height: 100%;
+			    overflow: auto;
+			    z-index: 9999;
+			    background: #333;
+			    top: 0;
+			    left: 0;
+			    padding: 50px 15px 20px;
+			    font-size: 13px;
+			    display: none;
+			    &::-webkit-scrollbar {
+					width: 4px;
+				}
+				&::-webkit-scrollbar-track {
+					background: #ddd;
+				}
+				&::-webkit-scrollbar-thumb {
+					background: #737373;
+				}
+			    li {
+			    	a {
+			    		color: #fafafa;
+			    		font-weight: 500;
+			    		display: block;
+			    		padding: 8px 0;
+			    		border-bottom: 1px solid #737373;
+			    	}
+			    	.sub-menu {
+			    		display: none;
+			    		padding-left: 15px;
+			    		.sub-child {
+			    			display: block!important;
+			    			padding-left: 30px;
+			    		}
+			    		li {
+			    			&.title {
+			    				text-align: center;
+			    				text-transform: uppercase;
+			    			}
+			    		}
+			    	}
+			    }
+			    & > li {
+			    	& > a {
+			    		text-transform: uppercase;
+			    	}
+			    	&:nth-of-type(1) {
+			    		& > a {
+			    			border-top: 1px solid #737373;
+			    		}
+			    	}
+			    }
+			}
+			.open-menu {
+				display: inline-block;
+				float: right;
+				margin-top: 26px;
+				span {
+					display: block;
+					width: 23px;
+					height: 2px;
+					margin: 3px 0;
+					background: #fefefe;
+				}
+			}
+			.close-menu {
+				color: #fafafa;
+				@include absolute(15px,null,null,27px);
+				font-size: 2rem;
+			}
+			.open-sub {
+				position: relative;
+				cursor: pointer;
+				float: right;
+				margin-top: -42px;
+				&::before {
+					content: "\f107";
+					font-family: FontAwesome;
+					display: inline-block;
+					width: 41px;
+					height: 41px;
+					line-height: 41px;
+					color: #fafafa;
+					text-align: center;
+					background: rgba(0,0,0,.2);
+				    font-size: 20px;
+				}
+				&.active {
+					&::before {
+						content: "\f106";
+					}
+				}
+			}
+		}
+	}
+}

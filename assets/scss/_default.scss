@@ -1,0 +1,233 @@
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 transparent;
+  border-color: #ddd;
+}
+button.active.focus,
+button.active:focus,
+button.focus,
+button.focus:active,
+button:active:focus,
+button:focus {
+  outline: 0 !important;
+  outline-offset: 0  !important;
+  background-image: none  !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none  !important;
+  background: transparent!important;
+}
+a:link {
+	text-decoration: none;
+	transition: 0.3s;
+}
+// Begin font-family
+@font-face {
+	@include font-face(400,normal);
+	src: url("../fonts/open-sans/OpenSans-Regular.woff2") format("woff2");
+}
+@font-face {
+	@include font-face(400,italic);	
+	src: url("../fonts/open-sans/OpenSans-Italic.woff2") format("woff2");
+}
+@font-face {
+	@include font-face(500,normal);
+	src: url("../fonts/open-sans/OpenSans-Semibold.woff2") format("woff2");
+}
+@font-face {
+	@include font-face(500,italic);
+	src: url("../fonts/open-sans/OpenSans-SemiboldItalic.woff2") format("woff2");
+}
+@font-face {
+	@include font-face(700,normal);
+	src: url("../fonts/open-sans/OpenSans-Bold.woff2") format("woff2");
+}
+@font-face {
+	@include font-face(700,italic);
+	src: url("../fonts/open-sans/OpenSans-BoldItalic.woff2") format("woff2");
+}
+@font-face {
+	@include font-face(300,normal);
+	src: url("../fonts/open-sans/OpenSans-Light.ttf");
+}
+@font-face {
+	@include font-face(300,italic);
+	src: url("../fonts/open-sans/OpenSans-LightItalic.ttf");
+}
+.site-content {
+	padding-top: 90px;
+	padding-bottom: 90px;
+	&.style2 {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	@media screen and (min-width: 768px) and (max-width: 991px) {
+		padding-top: 30px!important;
+		padding-bottom: 30px!important;
+	}
+	@media screen and (max-width: 767px) {
+		padding-top: 15px!important;
+		padding-bottom: 15px!important;
+	}
+}
+.thumbnail {
+	position: relative;
+	overflow: hidden;
+	a {
+		display: flex;
+	}
+	img {
+		@include image(100%);
+	}
+}
+.title-block {
+	margin-bottom: 50px;
+	@media screen and (max-width: 991px) {
+		margin-bottom: 30px;
+	}
+	@media screen and (max-width: 767px) {
+		margin-bottom: 15px;
+	}
+}
+.small-title {
+	font-weight: 300;
+	text-align: center;
+}
+.main-title {
+	font-weight: 300;
+	color: $black;
+	font-size: 36px;
+	margin-bottom: 5px;
+	text-align: center;
+	@media screen and (max-width: 767px) {
+		font-size: 28px;
+	}
+}
+.d-image {
+	display: block;
+	position: relative;
+	background: url("../images/ico-flower.png") no-repeat;
+	background-position: 0 0;
+	width: 20px;
+	height: 20px;
+	margin: auto;
+	margin-bottom: 5px;
+	&::before {
+		content: "";
+		background: $black;
+		height: 4px;
+		width: 40px;
+		@include absolute(50%,null,-55px,null);
+		transform: translateY(-50%);
+	}
+	&::after {
+		content: "";
+		background: $black;
+		height: 4px;
+		width: 40px;
+		@include absolute(50%,null,null,-55px);
+		transform: translateY(-50%);
+	}
+	&.style2 {
+		background: url("../images/ico-flower.png") no-repeat;
+		background-position: -20px 0;
+		opacity: 0.5;
+		&::before, &::after {
+			background: rgba(255,255,255,.5);
+		}
+	}
+}
+.effect-btn {
+	display: flex;
+	width: max-content;
+	background: $violet;
+	text-transform: uppercase;
+	padding: 10px 15px 8px;
+	color: #fff!important;
+	position: relative;
+	z-index: 2;
+	overflow: hidden;
+	justify-content: center;
+	text-decoration: none;
+	&::before {
+		content: "";
+		background: $violet3;
+		visibility: hidden;
+		@include absolute(0,0,0,0);
+		width: 100%;
+		height: 0;
+		transition: 0.2s;
+		z-index: -1;
+	}
+	&:hover {
+		&::before {
+			visibility: visible;
+			height: 100%;
+		}
+	}
+}
+.gradient-bg {
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.1) 40%, rgba(255, 255, 255, 0));
+}
+/*----------------------------
+.hidden-element
+----------------------------*/
+.hidden-element {
+	position: relative;
+	@media screen and (max-width: 767px) {
+		max-height: 275px;
+		overflow: hidden;
+		&.active {
+			max-height: 100%;
+		}
+	}
+}
+/*----------------------------
+.show-more
+----------------------------*/
+a.show-more {
+	display: block;
+	padding: 15px 0 0;
+	text-decoration: none;
+	color: #666;
+	position: relative;
+	&::after {
+		content: "\f107";
+		font-family: FontAwesome;
+		display: inline-block;
+		margin-left: 5px;
+	}
+	@media screen and (min-width: 768px) {
+		display: none;
+	}
+}
+/*----------------------------
+.show-less
+----------------------------*/
+a.show-less {
+	@extend a.show-more;
+	display: none;
+	&::after {
+		content: "\f106";
+	}
+}
+.page-title {
+	font-size: 30px;
+	font-weight: 400;
+	text-transform: capitalize;
+	color: $black;
+	margin-bottom: 30px;
+	@media screen and (max-width: 991px) {
+		font-size: 25px;
+		margin-bottom: 15px;
+	}
+}
